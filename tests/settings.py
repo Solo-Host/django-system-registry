@@ -13,7 +13,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "system_resgistry",
+    "system_registry",
 ]
 
 MIDDLEWARE = [
@@ -47,12 +47,12 @@ TEMPLATES = [
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-        "LOCATION": "system-resgistry-tests",
+        "LOCATION": "system-registry-tests",
     },
 }
 
-SYSTEM_RESGISTRY_DEFINITIONS_PROVIDER = get_test_definitions
-SYSTEM_RESGISTRY_CACHE_TIMEOUT = 120
+SYSTEM_REGISTRY_DEFINITIONS_PROVIDER = get_test_definitions
+SYSTEM_REGISTRY_CACHE_TIMEOUT = 120
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 USE_TZ = True

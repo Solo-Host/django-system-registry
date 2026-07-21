@@ -31,26 +31,26 @@ class Migration(migrations.Migration):
                 ("updated_at", models.DateTimeField(auto_now=True)),
             ],
             options={
-                "db_table": "system_resgistry_system_setting",
+                "db_table": "system_registry_system_setting",
                 "ordering": ["namespace", "key"],
             },
         ),
         migrations.AddIndex(
             model_name="systemsetting",
-            index=models.Index(fields=["namespace"], name="system_resg_namespace_9fd7c0_idx"),
+            index=models.Index(fields=["namespace"], name="system_reg_namespace_idx"),
         ),
         migrations.AddIndex(
             model_name="systemsetting",
             index=models.Index(
                 fields=["namespace", "key"],
-                name="system_resg_namespace_6cf6ee_idx",
+                name="system_reg_namespace_key_idx",
             ),
         ),
         migrations.AddConstraint(
             model_name="systemsetting",
             constraint=models.UniqueConstraint(
                 fields=("namespace", "key"),
-                name="system_resgistry_namespace_key_unique",
+                name="system_reg_namespace_key_uniq",
             ),
         ),
     ]

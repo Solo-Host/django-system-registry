@@ -7,8 +7,8 @@ from django.core.exceptions import ValidationError
 from django.http import HttpRequest
 from django.utils.html import format_html
 
-from system_resgistry.models import SystemSetting
-from system_resgistry.registry import SettingsRegistry
+from system_registry.models import SystemSetting
+from system_registry.registry import SettingsRegistry
 
 
 @admin.register(SystemSetting)

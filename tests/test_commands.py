@@ -5,7 +5,7 @@ from io import StringIO
 import pytest
 from django.core.management import call_command
 
-from system_resgistry.models import SystemSetting
+from system_registry.models import SystemSetting
 
 
 @pytest.mark.django_db

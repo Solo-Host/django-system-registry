@@ -6,7 +6,7 @@ from typing import Any, TypedDict, cast
 
 from django.core.exceptions import ImproperlyConfigured
 
-from system_resgistry.conf import get_registry_definitions
+from system_registry.conf import get_registry_definitions
 
 Validator = Callable[[Any], Any | None]
 Coercer = Callable[[Any], Any]

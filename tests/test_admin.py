@@ -9,8 +9,8 @@ from django.contrib.sessions.backends.db import SessionStore
 from django.http import HttpRequest
 from django.test.client import RequestFactory
 
-from system_resgistry.admin import SystemSettingAdmin
-from system_resgistry.models import SystemSetting
+from system_registry.admin import SystemSettingAdmin
+from system_registry.models import SystemSetting
 
 
 @pytest.mark.django_db
@@ -38,7 +38,7 @@ class TestSystemSettingAdmin:
 
     @staticmethod
     def _build_request() -> HttpRequest:
-        request = RequestFactory().post("/admin/system_resgistry/systemsetting/")
+        request = RequestFactory().post("/admin/system_registry/systemsetting/")
         request.session = SessionStore()
         request_with_messages = cast(Any, request)
         request_with_messages._messages = FallbackStorage(request)

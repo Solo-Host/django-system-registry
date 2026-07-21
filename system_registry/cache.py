@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from django.core.cache import cache
 
-from system_resgistry.conf import get_cache_prefix
+from system_registry.conf import get_cache_prefix
 
 
 def get_cache_key(namespace: str, key: str) -> str:

@@ -4,10 +4,10 @@ from typing import Any
 
 from django.core.cache import cache
 
-from system_resgistry.cache import get_cache_key
-from system_resgistry.conf import get_cache_timeout
-from system_resgistry.models import SystemSetting
-from system_resgistry.registry import SettingsRegistry
+from system_registry.cache import get_cache_key
+from system_registry.conf import get_cache_timeout
+from system_registry.models import SystemSetting
+from system_registry.registry import SettingsRegistry
 
 _CACHE_MISS = object()
 

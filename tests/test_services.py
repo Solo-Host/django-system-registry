@@ -3,8 +3,8 @@ from __future__ import annotations
 import pytest
 from django.core.cache import cache
 
-from system_resgistry.models import SystemSetting
-from system_resgistry.services import SettingsService, get_system_setting, set_system_setting
+from system_registry.models import SystemSetting
+from system_registry.services import SettingsService, get_system_setting, set_system_setting
 
 
 @pytest.mark.django_db

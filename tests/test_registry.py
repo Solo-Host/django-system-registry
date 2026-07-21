@@ -4,7 +4,7 @@ import pytest
 from django.core.exceptions import ImproperlyConfigured
 from django.test import override_settings
 
-from system_resgistry.registry import SettingsRegistry
+from system_registry.registry import SettingsRegistry
 
 
 class TestSettingsRegistry:
@@ -70,7 +70,7 @@ class TestSettingsRegistry:
         assert SettingsRegistry.serialize_value({"default": "light"}) == '{"default": "light"}'
 
     @override_settings(
-        SYSTEM_RESGISTRY_DEFINITIONS={
+        SYSTEM_REGISTRY_DEFINITIONS={
             ("billing", "trial_days"): {
                 "type": int,
                 "default": 21,
@@ -82,7 +82,7 @@ class TestSettingsRegistry:
         assert SettingsRegistry.get_default_value("billing", "trial_days") == 21
 
     @override_settings(
-        SYSTEM_RESGISTRY_DEFINITIONS={
+        SYSTEM_REGISTRY_DEFINITIONS={
             ("broken", "setting"): {
                 "default": 10,
             }
