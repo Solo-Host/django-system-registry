@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "django-system-resgistry"
+name = "django-system-registry"
 version = "0.1.0"
 description = "Reusable Django app for registry-backed system settings."
 readme = "README.md"
@@ -40,7 +40,7 @@ dev = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["system_resgistry*"]
+include = ["system_registry*"]
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "tests.settings"

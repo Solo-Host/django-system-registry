@@ -3,7 +3,7 @@ from __future__ import annotations
 import pytest
 from django.core.exceptions import ValidationError
 
-from system_resgistry.models import SystemSetting
+from system_registry.models import SystemSetting
 
 
 @pytest.mark.django_db

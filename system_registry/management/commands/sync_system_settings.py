@@ -4,8 +4,8 @@ from typing import Any
 
 from django.core.management.base import BaseCommand, CommandError, CommandParser
 
-from system_resgistry.models import SystemSetting
-from system_resgistry.registry import SettingsRegistry
+from system_registry.models import SystemSetting
+from system_registry.registry import SettingsRegistry
 
 
 class Command(BaseCommand):

@@ -8,8 +8,8 @@ from django.db import models
 from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
 
-from system_resgistry.cache import invalidate_cache_key
-from system_resgistry.registry import SettingsRegistry
+from system_registry.cache import invalidate_cache_key
+from system_registry.registry import SettingsRegistry
 
 
 class SystemSetting(models.Model):
@@ -24,17 +24,17 @@ class SystemSetting(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table = "system_resgistry_system_setting"
+        db_table = "system_registry_system_setting"
         ordering = ["namespace", "key"]
         constraints = [
             models.UniqueConstraint(
                 fields=("namespace", "key"),
-                name="system_resgistry_namespace_key_unique",
+                name="system_reg_namespace_key_uniq",
             )
         ]
         indexes = [
-            models.Index(fields=["namespace"]),
-            models.Index(fields=["namespace", "key"]),
+            models.Index(fields=["namespace"], name="system_reg_namespace_idx"),
+            models.Index(fields=["namespace", "key"], name="system_reg_namespace_key_idx"),
         ]
 
     def __str__(self) -> str:

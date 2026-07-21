@@ -1,4 +1,4 @@
-# django-system-resgistry
+# django-system-registry
 
 Reusable Django app for typed, registry-backed system settings.
 
@@ -13,7 +13,7 @@ Reusable Django app for typed, registry-backed system settings.
 ## Installation
 
 ```bash
-uv add django-system-resgistry
+uv add django-system-registry
 ```
 
 Add the app to `INSTALLED_APPS`:
@@ -21,14 +21,14 @@ Add the app to `INSTALLED_APPS`:
 ```python
 INSTALLED_APPS = [
     # ...
-    "system_resgistry",
+    "system_registry",
 ]
 ```
 
 Run migrations:
 
 ```bash
-python manage.py migrate system_resgistry
+python manage.py migrate system_registry
 ```
 
 ## Define settings in the host app
@@ -38,7 +38,7 @@ This package provides the framework. Your project keeps its own setting definiti
 You can define them directly in Django settings:
 
 ```python
-SYSTEM_RESGISTRY_DEFINITIONS = {
+SYSTEM_REGISTRY_DEFINITIONS = {
     ("api", "page_size"): {
         "type": int,
         "default": 20,
@@ -57,7 +57,7 @@ SYSTEM_RESGISTRY_DEFINITIONS = {
 Or load them from a provider callable:
 
 ```python
-SYSTEM_RESGISTRY_DEFINITIONS_PROVIDER = "config.system_settings.get_setting_definitions"
+SYSTEM_REGISTRY_DEFINITIONS_PROVIDER = "config.system_settings.get_setting_definitions"
 ```
 
 Provider callables must return the same mapping shape:
@@ -74,7 +74,7 @@ def get_setting_definitions():
     }
 ```
 
-If both are present, provider definitions are loaded first and `SYSTEM_RESGISTRY_DEFINITIONS`
+If both are present, provider definitions are loaded first and `SYSTEM_REGISTRY_DEFINITIONS`
 overrides matching keys.
 
 ## Supported definition metadata
@@ -97,7 +97,7 @@ overrides matching keys.
 Model-level access:
 
 ```python
-from system_resgistry.models import SystemSetting
+from system_registry.models import SystemSetting
 
 page_size = SystemSetting.get_value("api", "page_size", default=20)
 SystemSetting.set_value("features", "signup_enabled", True)
@@ -106,7 +106,7 @@ SystemSetting.set_value("features", "signup_enabled", True)
 Service-layer access with caching:
 
 ```python
-from system_resgistry.services import SettingsService
+from system_registry.services import SettingsService
 
 page_size = SettingsService.get_setting("api", "page_size", default=20)
 SettingsService.set_setting("features", "signup_enabled", True)
@@ -115,7 +115,7 @@ SettingsService.set_setting("features", "signup_enabled", True)
 Convenience helpers:
 
 ```python
-from system_resgistry.services import get_system_setting, set_system_setting
+from system_registry.services import get_system_setting, set_system_setting
 
 enabled = get_system_setting("features", "signup_enabled", default=False)
 set_system_setting("features", "signup_enabled", True)
@@ -125,8 +125,8 @@ set_system_setting("features", "signup_enabled", True)
 
 | Setting | Purpose | Default |
 | --- | --- | --- |
-| `SYSTEM_RESGISTRY_CACHE_PREFIX` | Cache key prefix | `system_resgistry:` |
-| `SYSTEM_RESGISTRY_CACHE_TIMEOUT` | Cache TTL in seconds | `300` |
+| `SYSTEM_REGISTRY_CACHE_PREFIX` | Cache key prefix | `system_registry:` |
+| `SYSTEM_REGISTRY_CACHE_TIMEOUT` | Cache TTL in seconds | `300` |
 
 Cache entries are invalidated automatically when `SystemSetting` rows are saved or deleted.
 
@@ -155,7 +155,7 @@ The admin surfaces the typed value, registered type, and registered default. It 
 at `SystemSetting` or `SettingsService` from here:
 
 ```python
-from system_resgistry.services import get_system_setting
+from system_registry.services import get_system_setting
 
 
 def editable_pages_cache_timeout(*, scope: str, page_type: str | None, default: int) -> int:
@@ -171,10 +171,10 @@ def editable_pages_cache_timeout(*, scope: str, page_type: str | None, default: 
 ## Development
 
 ```bash
-cd django-system-resgistry
+cd django-system-registry
 uv sync --extra dev
 source .venv/bin/activate
 pytest
-ruff check system_resgistry tests
-mypy system_resgistry tests
+ruff check system_registry tests
+mypy system_registry tests
 ```

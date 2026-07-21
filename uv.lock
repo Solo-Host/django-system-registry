@@ -89,7 +89,7 @@ wheels = [
 ]
 
 [[package]]
-name = "django-system-resgistry"
+name = "django-system-registry"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
