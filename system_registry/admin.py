@@ -12,7 +12,7 @@ from system_registry.registry import SettingsRegistry
 
 
 @admin.register(SystemSetting)
-class SystemSettingAdmin(admin.ModelAdmin):  # type: ignore[type-arg]
+class SystemSettingAdmin(admin.ModelAdmin):
     list_display = (
         "namespace",
         "key",

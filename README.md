@@ -173,8 +173,9 @@ def editable_pages_cache_timeout(*, scope: str, page_type: str | None, default: 
 ```bash
 cd django-system-registry
 uv sync --extra dev
-source .venv/bin/activate
-pytest
-ruff check system_registry tests
-mypy system_registry tests
+uv run tox
+uv run tox -e py313 -- tests/test_models.py
+uv run tox -e lint
+uv run tox -e mypy
+uv run tox -e security
 ```
