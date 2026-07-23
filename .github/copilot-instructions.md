@@ -97,10 +97,12 @@ environments are `py313`, `lint`, `mypy`, and `security`, with optional `ruff`,
   settings-driven
 
 ### Versioning and Release Flow
-- `pyproject.toml` is the single source of truth for the package version
+- `pyproject.toml` drives release version selection, and the editable package
+  metadata in `uv.lock` must stay aligned with that version
 - Normal feature work should not bump the version manually
 - Releases go through `.github/workflows/release.yml`, which creates a release
-  bump PR, then creates the tag and GitHub Release after merge
+  bump PR, updates `pyproject.toml` plus the committed `uv.lock` metadata, then
+  creates the tag and GitHub Release after merge
 - The release flow is GitHub-only for now; do not add PyPI publishing steps
 
 ## Important Notes
